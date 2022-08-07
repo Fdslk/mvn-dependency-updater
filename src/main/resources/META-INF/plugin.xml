@@ -8,7 +8,7 @@
     <name>Mvn-dependency-updater</name>
 
     <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
-    <vendor email="zqfangmaster@163.com" url="https://www.zqf.com">none</vendor>
+    <vendor email="zqfangmaster@163.com" url="https://github.com/Fdslk">Fdslk</vendor>
 
     <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
          Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
@@ -21,11 +21,22 @@
     <!-- Product and plugin compatibility requirements.
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
     <depends>com.intellij.modules.platform</depends>
+    <depends>org.jetbrains.idea.maven</depends>
+
+    <!--resource-bundle -->
+    <resource-bundle>META-INF.MavenVersionInspectionBundle</resource-bundle>
 
     <!-- Extension points defined by the plugin.
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
     <extensions defaultExtensionNs="com.intellij">
-
+        <localInspection
+                shortName="MavenVersionUpdateInspection"
+                displayName="Maven Version Updater"
+                groupName="Maven"
+                enabledByDefault="true"
+                language="XML"
+                level="WARNING"
+                implementationClass="MavenDependencyVersionUpdateInspection"/>
     </extensions>
 
     <actions>
